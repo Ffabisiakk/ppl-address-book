@@ -1,16 +1,19 @@
 package pl.ppl.addressbook.api.dto;
 
+import lombok.Builder;
 import lombok.Data;
 
-import java.util.Set;
+import java.util.List;
 
 @Data
+@Builder
 public class ContactDto {
 
+    private Long id;
     private String name;
     private String note;
     private String group;
-    private Set<EmailDto> emails;
-    private Set<PhoneDto> phones;
-    private Set<SocialDto> socials;
+    private List<EmailDto> emails;
+    private List<PhoneDto> phones;
+    private List<SocialDto> socials;
 }

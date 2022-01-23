@@ -1,15 +1,19 @@
 package pl.ppl.addressbook.contact;
 
-import pl.ppl.addressbook.api.dto.EmailDto;
-import pl.ppl.addressbook.api.dto.PhoneDto;
-import pl.ppl.addressbook.api.dto.SocialDto;
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
 
+import javax.persistence.Column;
 import javax.persistence.Embeddable;
-import java.util.Set;
 
+@NoArgsConstructor
+@AllArgsConstructor
+@Getter
 @Embeddable
-class ContactInfo {
+public class ContactInfo {
     private String name;
     private String note;
+    @Column(name = "contact_group")
     private String group;
 }
