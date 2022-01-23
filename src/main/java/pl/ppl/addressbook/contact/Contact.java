@@ -2,6 +2,9 @@ package pl.ppl.addressbook.contact;
 
 import lombok.*;
 import pl.ppl.addressbook.BaseEntity;
+import pl.ppl.addressbook.contact.mail.Email;
+import pl.ppl.addressbook.contact.phone.Phone;
+import pl.ppl.addressbook.contact.social.Social;
 
 import javax.persistence.*;
 import java.util.Set;
