@@ -1,6 +1,7 @@
 package pl.ppl.addressbook.web;
 
 import lombok.RequiredArgsConstructor;
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 import pl.ppl.addressbook.api.ContactEntrySaveService;
 import pl.ppl.addressbook.api.dto.ContactDto;
@@ -9,6 +10,7 @@ import pl.ppl.addressbook.api.dto.PhoneEntryRequest;
 import pl.ppl.addressbook.api.dto.SocialEntryRequest;
 
 @RestController
+@Validated
 @RequiredArgsConstructor
 public class ContactEntryController {
 

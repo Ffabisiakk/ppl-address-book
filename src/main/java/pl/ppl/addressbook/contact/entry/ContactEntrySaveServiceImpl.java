@@ -11,6 +11,7 @@ import pl.ppl.addressbook.contact.Contact;
 import pl.ppl.addressbook.contact.ContactMapper;
 import pl.ppl.addressbook.contact.ContactRepository;
 
+import java.util.NoSuchElementException;
 import java.util.Objects;
 import java.util.Optional;
 
@@ -26,7 +27,7 @@ public class ContactEntrySaveServiceImpl implements ContactEntrySaveService {
         return contact.map(c -> {
             c.addEmail(request.toEmail());
             return new ContactMapper().toDto(repository.save(c));
-        }).orElseThrow();
+        }).orElseThrow(() -> new NoSuchElementException("No contact with given id"));
     }
 
     @Override
@@ -37,10 +38,11 @@ public class ContactEntrySaveServiceImpl implements ContactEntrySaveService {
                     .filter(e -> Objects.equals(e.getId(), emailId))
                     .findFirst();
 
-            email.map(e -> e.update(request.toEmail())).orElseThrow();
+            email.map(e -> e.update(request.toEmail()))
+                    .orElseThrow(() -> new NoSuchElementException("No mail entry with given id"));
 
             return new ContactMapper().toDto(repository.save(c));
-        }).orElseThrow();
+        }).orElseThrow(() -> new NoSuchElementException("No contact with given id"));
     }
 
     @Override
@@ -49,7 +51,7 @@ public class ContactEntrySaveServiceImpl implements ContactEntrySaveService {
         return contact.map(c -> {
             c.addPhone(request.toPhone());
             return new ContactMapper().toDto(repository.save(c));
-        }).orElseThrow();
+        }).orElseThrow(() -> new NoSuchElementException("No contact with given id"));
     }
 
     @Override
@@ -60,10 +62,11 @@ public class ContactEntrySaveServiceImpl implements ContactEntrySaveService {
                     .filter(e -> Objects.equals(e.getId(), phoneId))
                     .findFirst();
 
-            phone.map(p -> p.update(request.toPhone())).orElseThrow();
+            phone.map(p -> p.update(request.toPhone()))
+                    .orElseThrow(() -> new NoSuchElementException("No phone entry with given id"));
 
             return new ContactMapper().toDto(repository.save(c));
-        }).orElseThrow();
+        }).orElseThrow(() -> new NoSuchElementException("No contact with given id"));
     }
 
     @Override
@@ -72,7 +75,7 @@ public class ContactEntrySaveServiceImpl implements ContactEntrySaveService {
         return contact.map(c -> {
             c.addSocial(request.toSocial());
             return new ContactMapper().toDto(repository.save(c));
-        }).orElseThrow();
+        }).orElseThrow(() -> new NoSuchElementException("No contact with given id"));
     }
 
     @Override
@@ -83,9 +86,10 @@ public class ContactEntrySaveServiceImpl implements ContactEntrySaveService {
                     .filter(e -> Objects.equals(e.getId(), socialId))
                     .findFirst();
 
-            social.map(s -> s.update(request.toSocial())).orElseThrow();
+            social.map(s -> s.update(request.toSocial()))
+                    .orElseThrow(() -> new NoSuchElementException("No social entry with given id"));
 
             return new ContactMapper().toDto(repository.save(c));
-        }).orElseThrow();
+        }).orElseThrow(() -> new NoSuchElementException("No contact with given id"));
     }
 }

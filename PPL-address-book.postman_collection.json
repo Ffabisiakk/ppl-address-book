@@ -1,0 +1,158 @@
+{
+	"info": {
+		"_postman_id": "0cd54d94-3edf-4255-9fec-955027ebd336",
+		"name": "PPL-address-book",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "contacts",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/contacts",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"contacts"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "contact",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/contact/1",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"contact",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "create empty contact",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"name\": \"Testowy\",\n    \"note\": \"Tetowy kontakt\",\n    \"group\": \"Przyjaciele\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8080/contact",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"contact"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "create email entry",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"name\": \"Testowy\",\n    \"note\": \"Tetowy kontakt\",\n    \"group\": \"Przyjaciele\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8080/contact",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"contact"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "update email entry",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"address\": \"test5@test.pl\",\n    \"type\": \"BUSINESS\",\n    \"description\": \"testowy email 5\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8080/contact/1/email/1",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"contact",
+						"1",
+						"email",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "update contact info",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"name\": \"Testowy 2\",\n    \"note\": \"Testowy kontakt2\",\n    \"group\": \"Wrogowie\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8080/contact/1",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"contact",
+						"1"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

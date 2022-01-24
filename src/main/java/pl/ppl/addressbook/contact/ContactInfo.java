@@ -12,6 +12,7 @@ import javax.persistence.Embeddable;
 @Getter
 @Embeddable
 public class ContactInfo {
+
     private String name;
     private String note;
     @Column(name = "contact_group")

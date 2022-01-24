@@ -6,6 +6,7 @@ import pl.ppl.addressbook.contact.entry.Email;
 
 @Data
 public class EmailEntryRequest {
+    @javax.validation.constraints.Email
     private String address;
     private ContactType type;
     private String description;
