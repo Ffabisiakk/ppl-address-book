@@ -13,7 +13,7 @@ public class ContactSaveController {
     private final ContactSaveService service;
 
     @PostMapping("/contact")
-    public ContactDto createContact(@RequestBody ContactRequest request) {
+    public ContactDto createEmptyContact(@RequestBody ContactRequest request) {
         return this.service.create(request);
     }
 

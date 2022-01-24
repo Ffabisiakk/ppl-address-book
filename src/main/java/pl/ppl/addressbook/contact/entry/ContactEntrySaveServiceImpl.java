@@ -24,9 +24,8 @@ public class ContactEntrySaveServiceImpl implements ContactEntrySaveService {
     public ContactDto createMailEntry(Long contactId, EmailEntryRequest request) {
         Optional<Contact> contact = repository.findById(contactId);
         return contact.map(c -> {
-            c.getEmails().add(request.toEmail());
-            repository.save(c);
-            return new ContactMapper().toDto(c);
+            c.addEmail(request.toEmail());
+            return new ContactMapper().toDto(repository.save(c));
         }).orElseThrow();
     }
 
@@ -48,9 +47,8 @@ public class ContactEntrySaveServiceImpl implements ContactEntrySaveService {
     public ContactDto createPhoneEntry(Long contactId, PhoneEntryRequest request) {
         Optional<Contact> contact = repository.findById(contactId);
         return contact.map(c -> {
-            c.getPhones().add(request.toPhone());
-            repository.save(c);
-            return new ContactMapper().toDto(c);
+            c.addPhone(request.toPhone());
+            return new ContactMapper().toDto(repository.save(c));
         }).orElseThrow();
     }
 
@@ -72,9 +70,8 @@ public class ContactEntrySaveServiceImpl implements ContactEntrySaveService {
     public ContactDto createSocialEntry(Long contactId, SocialEntryRequest request) {
         Optional<Contact> contact = repository.findById(contactId);
         return contact.map(c -> {
-            c.getSocials().add(request.toSocial());
-            repository.save(c);
-            return new ContactMapper().toDto(c);
+            c.addSocial(request.toSocial());
+            return new ContactMapper().toDto(repository.save(c));
         }).orElseThrow();
     }
 

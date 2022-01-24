@@ -3,6 +3,7 @@ package pl.ppl.addressbook.contact.entry;
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
+import lombok.Setter;
 import pl.ppl.addressbook.BaseEntity;
 import pl.ppl.addressbook.contact.Contact;
 import pl.ppl.addressbook.contact.ContactType;
@@ -20,6 +21,7 @@ public class Email extends BaseEntity<Long> {
     private String description;
 
     @ManyToOne()
+    @Setter
     private Contact contact;
 
     public Email(String address, ContactType type, String description) {

@@ -22,7 +22,7 @@ public class Contact extends BaseEntity<Long> {
     @Setter
     private ContactInfo contactInfo;
 
-    @OneToMany(mappedBy = "contact", cascade = CascadeType.ALL)
+    @OneToMany(mappedBy = "contact", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<Email> emails = new ArrayList<>();
 
     @OneToMany(mappedBy = "contact", cascade = CascadeType.ALL)
@@ -31,4 +31,18 @@ public class Contact extends BaseEntity<Long> {
     @OneToMany(mappedBy = "contact", cascade = CascadeType.ALL)
     private List<Social> socials = new ArrayList<>();
 
+    public void addEmail(Email email) {
+        this.emails.add(email);
+        email.setContact(this);
+    }
+
+    public void addPhone(Phone phone) {
+        this.phones.add(phone);
+        phone.setContact(this);
+    }
+
+    public void addSocial(Social social) {
+        this.socials.add(social);
+        social.setContact(this);
+    }
 }

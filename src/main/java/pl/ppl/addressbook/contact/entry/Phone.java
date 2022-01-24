@@ -2,6 +2,7 @@ package pl.ppl.addressbook.contact.entry;
 
 import lombok.Getter;
 import lombok.NoArgsConstructor;
+import lombok.Setter;
 import pl.ppl.addressbook.BaseEntity;
 import pl.ppl.addressbook.contact.Contact;
 import pl.ppl.addressbook.contact.ContactType;
@@ -18,6 +19,7 @@ public class Phone extends BaseEntity<Long> {
     private ContactType type;
 
     @ManyToOne()
+    @Setter
     private Contact contact;
 
     public Phone(String number, ContactType type) {

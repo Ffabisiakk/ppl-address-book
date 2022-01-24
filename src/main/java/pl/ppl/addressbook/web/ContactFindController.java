@@ -25,9 +25,4 @@ public class ContactFindController {
         return service.getById(id);
     }
 
-    @GetMapping("/contact/{name}")
-    public ContactDto getByName(@PathVariable String name) {
-        return service.getByContactName(name);
-    }
-
 }

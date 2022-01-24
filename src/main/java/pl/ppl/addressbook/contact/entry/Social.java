@@ -2,6 +2,7 @@ package pl.ppl.addressbook.contact.entry;
 
 import lombok.Getter;
 import lombok.NoArgsConstructor;
+import lombok.Setter;
 import pl.ppl.addressbook.BaseEntity;
 import pl.ppl.addressbook.contact.Contact;
 
@@ -18,6 +19,7 @@ public class Social extends BaseEntity<Long> {
     private String description;
 
     @ManyToOne()
+    @Setter
     private Contact contact;
 
     public Social(String site, String link, String description) {
