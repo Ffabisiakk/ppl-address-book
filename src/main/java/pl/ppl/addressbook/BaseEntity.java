@@ -1,6 +1,7 @@
 package pl.ppl.addressbook;
 
 import lombok.Getter;
+import lombok.Setter;
 
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -12,6 +13,7 @@ import java.io.Serializable;
 public class BaseEntity<T extends Serializable> {
     @Id
     @Getter
+    @Setter
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private T id;
 }

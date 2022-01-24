@@ -1,11 +1,14 @@
 package pl.ppl.addressbook.api.dto;
 
+import lombok.Builder;
 import lombok.Data;
+import lombok.Setter;
 import pl.ppl.addressbook.contact.ContactInfo;
 
 import javax.validation.constraints.NotBlank;
 
 @Data
+@Builder
 public class ContactRequest {
 
     @NotBlank(message = "Name is mandatory")

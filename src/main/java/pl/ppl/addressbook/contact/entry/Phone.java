@@ -9,12 +9,14 @@ import pl.ppl.addressbook.contact.ContactType;
 
 import javax.persistence.Entity;
 import javax.persistence.ManyToOne;
+import javax.validation.constraints.Pattern;
 
 @Entity
 @Getter
 @NoArgsConstructor
 public class Phone extends BaseEntity<Long> {
 
+    @Pattern(regexp = "^\\+\\d{1,3}( )?(\\d{3}[ ]?){2}\\d{3}$")
     private String number;
     private ContactType type;
 

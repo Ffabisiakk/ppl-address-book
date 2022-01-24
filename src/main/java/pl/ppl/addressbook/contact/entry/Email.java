@@ -15,6 +15,7 @@ import javax.persistence.ManyToOne;
 @NoArgsConstructor
 public class Email extends BaseEntity<Long> {
 
+    @javax.validation.constraints.Email
     private String address;
     private ContactType type;
     private String description;

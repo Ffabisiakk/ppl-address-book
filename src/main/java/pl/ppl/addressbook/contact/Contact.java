@@ -1,9 +1,6 @@
 package pl.ppl.addressbook.contact;
 
-import lombok.AccessLevel;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.*;
 import pl.ppl.addressbook.BaseEntity;
 import pl.ppl.addressbook.contact.entry.Email;
 import pl.ppl.addressbook.contact.entry.Phone;
@@ -15,7 +12,7 @@ import java.util.*;
 @Entity
 @Table
 @Getter
-@NoArgsConstructor(access = AccessLevel.PROTECTED)
+@NoArgsConstructor
 public class Contact extends BaseEntity<Long> {
 
     @Embedded
